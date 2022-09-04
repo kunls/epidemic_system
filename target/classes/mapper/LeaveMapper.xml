@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxk.epidemic_system.mapper.LeaveMapper">
+
+    <resultMap id="BaseResultMap" type="com.lxk.epidemic_system.entity.Leave">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="studentId" column="student_id" jdbcType="BIGINT"/>
+            <result property="teacherId" column="teacher_id" jdbcType="BIGINT"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="startTime" column="start_time" jdbcType="TIMESTAMP"/>
+            <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="reason" column="reason" jdbcType="VARCHAR"/>
+            <result property="route" column="route" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,student_id,teacher_id,
+        name,start_time,end_time,
+        status,reason,route
+    </sql>
+</mapper>

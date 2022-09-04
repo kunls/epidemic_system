@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxk.epidemic_system.mapper.StudentMapper">
+
+    <resultMap id="BaseResultMap" type="com.lxk.epidemic_system.entity.Student">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="classId" column="class_id" jdbcType="BIGINT"/>
+            <result property="dormitoryId" column="dormitory_id" jdbcType="BIGINT"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="grade" column="grade" jdbcType="VARCHAR"/>
+            <result property="major" column="major" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="address" column="address" jdbcType="VARCHAR"/>
+            <result property="checkedTime" column="checked_time" jdbcType="TIMESTAMP"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="isolation" column="isolation" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,class_id,dormitory_id,
+        name,grade,major,
+        phone,address,checked_time,
+        status,isolation
+    </sql>
+</mapper>

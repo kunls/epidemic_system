@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxk.epidemic_system.mapper.DormitoryMapper">
+
+    <resultMap id="BaseResultMap" type="com.lxk.epidemic_system.entity.Dormitory">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="buildingId" column="building_id" jdbcType="BIGINT"/>
+            <result property="floor" column="floor" jdbcType="INTEGER"/>
+            <result property="studentCount" column="student_count" jdbcType="INTEGER"/>
+            <result property="uncheckedCount" column="unchecked_count" jdbcType="INTEGER"/>
+            <result property="isolationCount" column="isolation_count" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,building_id,floor,
+        student_count,unchecked_count,isolation_count
+    </sql>
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxk.epidemic_system.mapper.EpidemicStateMapper">
+
+    <resultMap id="BaseResultMap" type="com.lxk.epidemic_system.entity.EpidemicState">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="week" column="week" jdbcType="VARCHAR"/>
+            <result property="studentCount" column="student_count" jdbcType="INTEGER"/>
+            <result property="teacherCount" column="teacher_count" jdbcType="INTEGER"/>
+            <result property="classCount" column="class_count" jdbcType="INTEGER"/>
+            <result property="dormitoryCount" column="dormitory_count" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,week,student_count,
+        teacher_count,class_count,dormitory_count
+    </sql>
+</mapper>

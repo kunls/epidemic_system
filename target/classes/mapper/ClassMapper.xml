@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxk.epidemic_system.mapper.ClassMapper">
+
+    <resultMap id="BaseResultMap" type="com.lxk.epidemic_system.entity.Class">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="major" column="major" jdbcType="VARCHAR"/>
+            <result property="grade" column="grade" jdbcType="VARCHAR"/>
+            <result property="studentCount" column="student_count" jdbcType="INTEGER"/>
+            <result property="uncheckedCount" column="unchecked_count" jdbcType="INTEGER"/>
+            <result property="isolationCount" column="isolation_count" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,major,grade,
+        student_count,unchecked_count,isolation_count
+    </sql>
+</mapper>

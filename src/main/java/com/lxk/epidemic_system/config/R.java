@@ -1,5 +1,6 @@
 package com.lxk.epidemic_system.config;
 
+import com.lxk.epidemic_system.enums.HttpStatus;
 import lombok.Data;
 
 import java.util.HashMap;
@@ -8,25 +9,25 @@ import java.util.Map;
 @Data
 public class R<T> {
 
-    private Integer code; //编码：1成功，0和其它数字为失败
+    private HttpStatus status; //状态码
 
     private String msg; //错误信息
 
     private T data; //数据
 
-    private Map map = new HashMap(); //动态数据
+    private Map<Object,Object> map = new HashMap<>(); //动态数据
 
-    public static <T> R<T> success(T object) {
+    public static <T> R<T> success(T object,HttpStatus status) {
         R<T> r = new R<T>();
         r.data = object;
-        r.code = 200;
+        r.status = status;
         return r;
     }
 
-    public static <T> R<T> error(String msg) {
+    public static <T> R<T> error(String msg,HttpStatus status) {
         R r = new R();
         r.msg = msg;
-        r.code = 0;
+        r.status = status;
         return r;
     }
 

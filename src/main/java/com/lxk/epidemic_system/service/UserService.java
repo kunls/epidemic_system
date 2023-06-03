@@ -1,5 +1,6 @@
 package com.lxk.epidemic_system.service;
 
+import com.lxk.epidemic_system.config.R;
 import com.lxk.epidemic_system.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.stereotype.Service;
@@ -11,4 +12,5 @@ import org.springframework.stereotype.Service;
 */
 public interface UserService extends IService<User> {
 
+    R<Integer> login(User user);
 }

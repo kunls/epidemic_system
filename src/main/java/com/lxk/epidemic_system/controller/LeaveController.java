@@ -4,71 +4,42 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lxk.epidemic_system.config.R;
 import com.lxk.epidemic_system.entity.Leave;
+import com.lxk.epidemic_system.enums.HttpStatus;
 import com.lxk.epidemic_system.service.LeaveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+import java.util.Objects;
+
 
 @RestController
-@RequestMapping(value = {"/leave", "/asktoleave"})
 public class LeaveController {
-    @Autowired
+    @Resource
     private LeaveService leaveService;
 
-    @GetMapping("/getLeave")
+    @GetMapping("/leaves")
     public R<Page<Leave>> getLeave(Integer page, Integer pageSize, String keyword) {
-        Page<Leave> leavePage = new Page<>(page, pageSize);
-        LambdaQueryWrapper<Leave> wrapper = new LambdaQueryWrapper<>();
-        if (keyword != "") {
-            wrapper.like(Leave::getStudentId, keyword);
-        }
-        wrapper.orderByDesc();
-        leaveService.page(leavePage, wrapper);
-        return R.success(leavePage);
+        return leaveService.getLeave(page, pageSize, keyword);
     }
 
-    @GetMapping("/allow")
-    public R allow(Long id) {
-        LambdaQueryWrapper<Leave> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(Leave::getId, id);
-        Leave leave = leaveService.getOne(wrapper);
-        leave.setStatus("已通过");
-        leaveService.saveOrUpdate(leave);
-        return R.success("已通过");
+    @GetMapping("/leaves/{id}/approve")
+    public R<String> approve(@PathVariable Long id) {
+        return leaveService.approve(id);
     }
 
-    @GetMapping("/refuse")
-    public R refuse(Long id) {
-        LambdaQueryWrapper<Leave> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(Leave::getId, id);
-        Leave leave = leaveService.getOne(wrapper);
-        leave.setStatus("已驳回");
-        leaveService.saveOrUpdate(leave);
-        return R.success("已驳回");
+    @GetMapping("/leaves/{id}/reject")
+    public R<String> reject(@PathVariable Long id) {
+        return leaveService.reject(id);
     }
 
-    @GetMapping("/getLeaveInfo")
-    public R<Page<Leave>> getCurrentInfo(Integer page, Integer pageSize, String username) {
-        Page<Leave> leavePage = new Page<>(page, pageSize);
-        LambdaQueryWrapper<Leave> wrapper = new LambdaQueryWrapper<>();
-        //根据学号
-        wrapper.eq(Leave::getStudentId, username).or().eq(Leave::getTeacherId, username);
-        wrapper.orderByDesc(Leave::getStatus);
-        leaveService.page(leavePage, wrapper);
-        return R.success(leavePage);
+    @GetMapping("/students/{username}/leaves")
+    public R<Page<Leave>> getCurrentInfo(Integer page, Integer pageSize, @PathVariable String username) {
+        return leaveService.getCurrentInfo(page, pageSize, username);
     }
 
-    @PostMapping("/submit")
-    public R submit(@RequestBody Leave realForm) {
-        Leave leave = leaveService.getLatestLeave(realForm);
-
-        if (leave!=null&&leave.getStatus() == "审核中") {
-            return R.error("只能同时申请一次请假");
-        }
-
-        Long id= Long.valueOf((int)(Math.random()*9000+1000));
-        realForm.setId(id);
-        leaveService.saveOrUpdate(realForm);
-        return R.success("ok");
+    @PostMapping("/leaves")
+    public R<String> submit(@RequestBody Leave realForm) {
+        return leaveService.submit(realForm);
     }
 }

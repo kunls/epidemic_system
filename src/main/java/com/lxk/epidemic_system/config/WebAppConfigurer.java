@@ -16,8 +16,8 @@ public class WebAppConfigurer extends WebMvcConfigurerAdapter {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                //.allowedOrigins("http://192.168.89.89")
-                .allowedMethods("GET", "POST","DELETE")
+                .allowedOrigins("http://localhost:8081")
+                .allowedMethods("GET", "POST","PUT","DELETE")
                 .allowCredentials(false).maxAge(3600);
     }
 }

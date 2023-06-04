@@ -3,7 +3,7 @@ package com.lxk.epidemic_system.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.lxk.epidemic_system.config.R;
+import com.lxk.epidemic_system.utils.R;
 import com.lxk.epidemic_system.entity.Class;
 import com.lxk.epidemic_system.enums.HttpStatus;
 import com.lxk.epidemic_system.service.ClassService;

@@ -6,13 +6,13 @@
 
     <resultMap id="BaseResultMap" type="com.lxk.epidemic_system.entity.User">
             <id property="id" column="id" jdbcType="BIGINT"/>
-            <result property="type" column="type" jdbcType="INTEGER"/>
+            <result property="role" column="role" jdbcType="INTEGER"/>
             <result property="username" column="username" jdbcType="VARCHAR"/>
             <result property="password" column="password" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,type,username,
+        id,role,username,
         password
     </sql>
 </mapper>

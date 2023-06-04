@@ -11,7 +11,11 @@
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="fileset" name="SecurityConfig" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/com/lxk/epidemic_system/config/SecurityConfig.java</file>
+        </fileset>
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
@@ -81,7 +85,6 @@
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-jdbc:2.7.1" level="project" />
     <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:4.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:5.3.21" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.21" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.76" level="project" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:druid-spring-boot-starter:1.1.23" level="project" />
@@ -102,9 +105,31 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.3.21" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.21" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.3.21" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.21" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.21" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.13.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-redis:2.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-redis:2.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-keyvalue:2.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.21" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-oxm:5.3.21" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context-support:5.3.21" level="project" />
+    <orderEntry type="library" name="Maven: io.lettuce:lettuce-core:6.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-common:4.1.78.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-handler:4.1.78.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-resolver:4.1.78.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.1.78.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-transport-native-unix-common:4.1.78.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.78.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-transport:4.1.78.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.projectreactor:reactor-core:3.4.19" level="project" />
+    <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-security:2.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.21" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:5.7.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.7.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:5.7.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.7.2" level="project" />
   </component>
 </module>

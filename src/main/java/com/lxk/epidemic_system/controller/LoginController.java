@@ -1,14 +1,10 @@
 package com.lxk.epidemic_system.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.lxk.epidemic_system.config.R;
-import com.lxk.epidemic_system.entity.User;
 import com.lxk.epidemic_system.enums.HttpStatus;
+import com.lxk.epidemic_system.utils.R;
+import com.lxk.epidemic_system.entity.User;
 import com.lxk.epidemic_system.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -17,9 +13,10 @@ public class LoginController {
     @Resource
     private UserService userService;
 
-    @PostMapping("/login")
-    public R<Integer> login(@RequestBody User user) {
-        return userService.login(user);
+    @GetMapping("/login")
+    public R<Integer> login(@RequestParam(value = "error", required = false) String error) {
+        //return userService.login(user);
+        return R.error(error, HttpStatus.BAD_REQUEST);
     }
 
 }
